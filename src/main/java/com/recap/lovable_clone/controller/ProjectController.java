@@ -3,7 +3,7 @@ package com.recap.lovable_clone.controller;
 import com.recap.lovable_clone.dto.project.ProjectRequest;
 import com.recap.lovable_clone.dto.project.ProjectResponse;
 import com.recap.lovable_clone.dto.project.ProjectSummaryResponse;
-import com.recap.lovable_clone.service.ProjectService;
+import com.recap.lovable_clone.service.serviceInterface.ProjectService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,21 +21,25 @@ public class ProjectController {
         Long userId=1L;
         return ResponseEntity.ok(projectService.getUserProjects(userId));
     }
+
     @GetMapping("/{id}")
     public ResponseEntity<ProjectResponse> getProjectById(@PathVariable Long id){
         Long userId=1L;
-        return ResponseEntity.ok(projectService.getUserProjectById(userId));
+        return ResponseEntity.ok(projectService.getUserProjectById(id, userId));
     }
-    @PostMapping("/{id}")
+
+    @PostMapping
     public ResponseEntity<ProjectResponse> createProject(@RequestBody ProjectRequest request){
         Long userId=1L;
         return ResponseEntity.status(HttpStatus.CREATED).body(projectService.createProject(request,userId));
     }
+
     @PatchMapping("{id}")
     public ResponseEntity<ProjectResponse> updateProject(@PathVariable Long id,@RequestBody ProjectRequest request){
         Long userId=1L;
         return ResponseEntity.ok(projectService.updateProject(id,request,userId));
     }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProject(@PathVariable Long id){
         Long userId=1L;

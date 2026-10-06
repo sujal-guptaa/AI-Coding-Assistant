@@ -1,8 +1,8 @@
 package com.recap.lovable_clone.controller;
 
 import com.recap.lovable_clone.dto.subscription.*;
-import com.recap.lovable_clone.service.PlanService;
-import com.recap.lovable_clone.service.SubscriptionService;
+import com.recap.lovable_clone.service.serviceInterface.PlanService;
+import com.recap.lovable_clone.service.serviceInterface.SubscriptionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

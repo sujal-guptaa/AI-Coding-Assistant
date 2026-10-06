@@ -1,8 +1,8 @@
 package com.recap.lovable_clone.controller;
 
 import com.recap.lovable_clone.dto.auth.*;
-import com.recap.lovable_clone.service.AuthService;
-import com.recap.lovable_clone.service.UserService;
+import com.recap.lovable_clone.service.serviceInterface.AuthService;
+import com.recap.lovable_clone.service.serviceInterface.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

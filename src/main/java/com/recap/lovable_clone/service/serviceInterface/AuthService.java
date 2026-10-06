@@ -1,11 +1,10 @@
-package com.recap.lovable_clone.service;
+package com.recap.lovable_clone.service.serviceInterface;
 
 import com.recap.lovable_clone.dto.auth.AuthResponse;
 import com.recap.lovable_clone.dto.auth.LoginRequest;
 import com.recap.lovable_clone.dto.auth.SignUpRequest;
-import org.springframework.stereotype.Service;
 
-@Service
+
 public interface AuthService {
     AuthResponse signUp(SignUpRequest request);
     AuthResponse login(LoginRequest request);

@@ -2,11 +2,10 @@ package com.recap.lovable_clone.controller;
 
 import com.recap.lovable_clone.dto.subscription.PlanLimitsResponse;
 import com.recap.lovable_clone.dto.subscription.UsageTodayResponse;
-import com.recap.lovable_clone.service.UsageService;
+import com.recap.lovable_clone.service.serviceInterface.UsageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

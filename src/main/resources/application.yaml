@@ -1,3 +1,14 @@
 spring:
   application:
     name: lovable-clone
+  datasource:
+    url: jdbc:postgresql://localhost:5432/lovableRb
+    username:
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
