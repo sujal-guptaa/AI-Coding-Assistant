@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <envs>
+      <env name="COMMAND_MODE" value="unix2003" />
+    </envs>
+    <module name="lovable-clone" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.recap.lovable_clone.LovableCloneApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

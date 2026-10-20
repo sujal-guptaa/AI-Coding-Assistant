@@ -14,7 +14,6 @@ import java.time.Instant;
 public class Subscription {
     Long id;
     User userId;
-    String stripeSubscriptionId;
     SubscriptionStatus Status;
     Instant currentPeriodStart;
     Instant currentPeriodEnd;

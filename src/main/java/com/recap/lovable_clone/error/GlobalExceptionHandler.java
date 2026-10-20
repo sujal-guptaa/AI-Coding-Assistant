@@ -1,12 +1,16 @@
 package com.recap.lovable_clone.error;
 
+import io.jsonwebtoken.JwtException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.nio.file.AccessDeniedException;
 import java.util.List;
 
 @Slf4j
@@ -34,6 +38,34 @@ public class GlobalExceptionHandler {
 
         ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST, "Input Validation Failed", errors);
         log.error(apiError.toString(), ex);
+        return ResponseEntity.status(apiError.status()).body(apiError);
+    }
+
+    @ExceptionHandler(UsernameNotFoundException.class)
+    public ResponseEntity<ApiError> handleUsernameNotFoundException(UsernameNotFoundException e){
+        ApiError apiError=new ApiError(HttpStatus.NOT_FOUND,"Username not found with username: "+e.getMessage());
+        log.error(apiError.toString(),e);
+        return ResponseEntity.status(apiError.status()).body(apiError);
+    }
+
+    @ExceptionHandler(AuthenticationException.class)
+    public ResponseEntity<ApiError> handleUsernameNotFoundException(AuthenticationException e){
+        ApiError apiError=new ApiError(HttpStatus.UNAUTHORIZED,"Authentication Failed: "+e.getMessage());
+        log.error(apiError.toString(),e);
+        return ResponseEntity.status(apiError.status()).body(apiError);
+    }
+
+    @ExceptionHandler(JwtException.class)
+    public ResponseEntity<ApiError> handleUsernameNotFoundException(JwtException e){
+        ApiError apiError=new ApiError(HttpStatus.UNAUTHORIZED,"Invalid jwt token: "+e.getMessage());
+        log.error(apiError.toString(),e);
+        return ResponseEntity.status(apiError.status()).body(apiError);
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<ApiError> handleUsernameNotFoundException(AccessDeniedException e){
+        ApiError apiError=new ApiError(HttpStatus.FORBIDDEN,"Access denied: Insufficient permission");
+        log.error(apiError.toString(),e);
         return ResponseEntity.status(apiError.status()).body(apiError);
     }
 }

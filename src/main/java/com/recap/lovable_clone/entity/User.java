@@ -31,6 +31,8 @@ public class User implements UserDetails {
 //    @Column(nullable = false)
     String password;
 
+    @Column(unique = true)
+    String stripeCustomerId;
     @Column(nullable = false)
     String name;
     String avatarUrl;
